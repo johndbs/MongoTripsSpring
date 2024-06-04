@@ -3,6 +3,7 @@ package com.thinkitdevit.mongotripsspring.services.aggregation;
 import com.thinkitdevit.mongotripsspring.mapper.Mapper;
 import com.thinkitdevit.mongotripsspring.models.Customer;
 import com.thinkitdevit.mongotripsspring.models.aggregates.CustomerAggregate;
+import com.thinkitdevit.mongotripsspring.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.bson.Document;
 import org.bson.types.ObjectId;
@@ -27,6 +28,13 @@ public class CustomerAggregateService {
 
     private final Mapper<Customer> customerMapper;
     private final Mapper<CustomerAggregate.BookingAggregate> bookingAggregateMapper;
+
+    private final CustomerRepository customerRepository;
+
+
+    public Optional<CustomerAggregate> getCustomerAggregateSimple(ObjectId id) {
+        return customerRepository.getCustomerAggregate(id);
+    }
 
     public Optional<CustomerAggregate> getCustomerAggregate(ObjectId id) {
         AggregationOperation match = match(Criteria.where("_id").is(id));

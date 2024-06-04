@@ -185,6 +185,10 @@ public class MongoTripsSpringApplication implements CommandLineRunner {
                 .ifPresentOrElse(System.out::println,
                         () -> System.out.println("Booking aggregate not found"));
 
+        customerAggregateService.getCustomerAggregateSimple( customerAlice.getId())
+                .ifPresentOrElse(System.out::println,
+                        () -> System.out.println("Booking aggregate not found"));
+
 
     }
 
