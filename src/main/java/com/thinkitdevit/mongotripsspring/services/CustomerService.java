@@ -2,7 +2,6 @@ package com.thinkitdevit.mongotripsspring.services;
 
 import com.thinkitdevit.mongotripsspring.mapper.CustomerMapper;
 import com.thinkitdevit.mongotripsspring.models.Customer;
-import com.thinkitdevit.mongotripsspring.models.Trip;
 import com.thinkitdevit.mongotripsspring.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.bson.types.ObjectId;
